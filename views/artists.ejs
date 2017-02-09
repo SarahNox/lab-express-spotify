@@ -1,9 +1,12 @@
-<h1> new Artist </h1>
-<form action="/artists" method="POST">
-  <label for="artist">Artist</label>
-  <input id="artist" type="text" name="artist">
+<h1>Artists</h1>
 
-  <button type="submit">
-    Search new Artist
-  </button>
-</form>
+<% artists.forEach((artist,index) => {
+	var artistName = artist.name;
+	var artistImage = "";
+	if(artist.images.length > 0) {
+		artistImage = artist.images[0].url;
+	}
+	%>
+	<p><%=artistName%></p>
+	<img src=<%=artistImage%> alt="">
+<%})%>
